@@ -1,142 +1,1183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rishitha Rumandla – AI Developer</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;500;600&display=swap">
-<style>
-:root{--bg:#f3f4f6;--side:#2b2f36;--ink:#1f2328;--mute:#5b626b;--card:#fff;--line:#d9dce1;--blue:#3f4752;--gold:#9ca3af;--onside:#eceef1;--onblue:#fff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121417;--side:#0b0c0e;--ink:#eceef1;--mute:#a1a8b3;--card:#1c1f24;--line:#2f343b;--blue:#c3c9d2;--gold:#8b94a1;--onblue:#121417}}
-:root[data-theme="dark"]{--bg:#121417;--side:#0b0c0e;--ink:#eceef1;--mute:#a1a8b3;--card:#1c1f24;--line:#2f343b;--blue:#c3c9d2;--gold:#8b94a1;--onblue:#121417}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.65 'Libre Franklin',system-ui,sans-serif}
-h1,h2,h3{font-family:'Libre Baskerville',Georgia,serif;margin:0;line-height:1.2}
-a{color:var(--blue)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.layout{display:grid;grid-template-columns:300px 1fr;min-height:100%}
-aside{background:var(--side);color:var(--onside);padding:36px 28px;position:sticky;top:0;height:100vh;height:100dvh;overflow-y:auto;display:flex;flex-direction:column}
-.ph{width:140px;height:140px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);display:flex;align-items:center;justify-content:center;background:var(--blue);color:var(--onblue);font:700 44px 'Libre Baskerville',serif}
-aside h1{font-size:27px;margin:20px 0 6px;color:#fff}
-aside .role{color:#c7ccd4;font-size:15px;margin:0 0 26px}
-aside nav{display:flex;flex-direction:column;gap:4px;border-top:1px solid #454b54;padding-top:18px}
-aside nav a{color:var(--onside);text-decoration:none;padding:7px 12px;border-left:3px solid transparent;border-radius:0 8px 8px 0}
-aside nav a:hover,aside nav a.on{border-left-color:var(--gold);background:#3a4049}
-.contact{margin-top:auto;padding-top:24px;font-size:14.5px;display:flex;flex-direction:column;gap:6px}
-.contact a{color:#d6dae0}
-main{padding:56px 6vw 80px;max-width:940px}
-section{margin-bottom:64px}
-h2{font-size:28px;padding-bottom:12px;border-bottom:3px solid var(--gold);display:inline-block;margin-bottom:26px}
-.intro{font-size:20px;max-width:34em}
-.chat{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;max-width:560px}
-.chat h3{font-family:'Libre Franklin',sans-serif;font-size:14px;color:var(--mute);font-weight:600;margin-bottom:10px}
-.msgs{display:flex;flex-direction:column;gap:8px;max-height:230px;overflow-y:auto}
-.m{padding:9px 13px;border-radius:12px;font-size:15px;max-width:92%;line-height:1.5}
-.m.bot{background:var(--bg)}.m.me{background:var(--blue);color:var(--onblue);align-self:flex-end}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chips button{font:inherit;font-size:13.5px;border:1px solid var(--blue);background:transparent;color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
-.chips button:hover{background:var(--blue);color:var(--onblue)}
-.item{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:22px 0;border-top:1px solid var(--line)}
-.item:first-of-type{border-top:0;padding-top:0}
-.when{color:var(--mute);font-size:14.5px;font-weight:500}
-.item h3{font-size:19px;margin-bottom:2px}.org{color:var(--blue);font-weight:600;margin-bottom:8px}
-.item ul{margin:0;padding-left:18px}.item li{margin-bottom:4px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:6px;padding:20px}
-.card.feat{grid-column:1/-1;background:var(--side);color:var(--onside);border-top-color:var(--gold)}
-.card h3{font-size:19px;margin-bottom:8px}.card p{margin:0 0 12px;font-size:15.5px}
-.feat .when{color:#c7ccd4;margin-bottom:8px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:12.5px;padding:2px 10px;border-radius:4px;background:var(--bg);font-weight:500;color:var(--ink)}
-.feat .tags span{background:#3a4049;color:#eceef1}
-.award{display:grid;grid-template-columns:70px 1fr;gap:16px;align-items:start;margin-bottom:18px}
-.badge{width:60px;height:60px;border-radius:50%;background:var(--gold);color:#1f2328;display:flex;align-items:center;justify-content:center;font:700 13px 'Libre Franklin',sans-serif;text-align:center;line-height:1.1}
-.award h3{font-size:18px}.award p{margin:4px 0 0;font-size:15.5px}
-.sk{display:grid;grid-template-columns:150px 1fr;gap:10px 22px;align-items:start}
-.sk b{padding-top:3px}.sk div.tags span{background:var(--card);border:1px solid var(--line)}
-.certs{columns:2;padding-left:18px;margin:0}.certs li{margin-bottom:6px}
-.cta{display:inline-block;background:var(--blue);color:var(--onblue);padding:11px 22px;border-radius:6px;text-decoration:none;font-weight:600;margin:0 10px 10px 0}
-.cta.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-@media(max-width:860px){.layout{grid-template-columns:1fr}aside{position:static;height:auto;flex-direction:row;flex-wrap:wrap;gap:16px;align-items:center;padding:26px 22px}
-.ph{width:92px;height:92px;font-size:30px}aside h1{margin:0}aside .role{margin:4px 0 0}aside nav{flex-direction:row;flex-wrap:wrap;width:100%}
-.contact{margin:0;padding:0}main{padding:36px 22px 60px}.item,.sk{grid-template-columns:1fr;gap:4px}.grid{grid-template-columns:1fr}.certs{columns:1}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rishitha Rumandla – AI Developer & Full-Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --side: #242830;
+      --side-surface: #2e333d;
+      --ink: #1c2025;
+      --mute: #59616c;
+      --card: #ffffff;
+      --line: #d8dce2;
+      --blue: #2f3844;
+      --blue-accent: #3b82f6;
+      --gold: #bda369;
+      --gold-light: #dfcaa0;
+      --onside: #eef1f5;
+      --onblue: #ffffff;
+      --highlight: #eef2f9;
+      --tag-bg: #eceff3;
+      --shadow: 0 16px 36px rgba(18, 24, 33, 0.08);
+      --card-shadow: 0 6px 18px rgba(14, 20, 28, 0.04);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #111317;
+        --side: #0b0d10;
+        --side-surface: #171a20;
+        --ink: #edf1f7;
+        --mute: #9aa2ae;
+        --card: #1a1d23;
+        --line: #2b3038;
+        --blue: #cbd3de;
+        --blue-accent: #60a5fa;
+        --gold: #cbb886;
+        --gold-light: #ecdcb1;
+        --onblue: #111317;
+        --highlight: rgba(255,255,255,0.05);
+        --tag-bg: rgba(255,255,255,0.07);
+        --shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #111317;
+      --side: #0b0d10;
+      --side-surface: #171a20;
+      --ink: #edf1f7;
+      --mute: #9aa2ae;
+      --card: #1a1d23;
+      --line: #2b3038;
+      --blue: #cbd3de;
+      --blue-accent: #60a5fa;
+      --gold: #cbb886;
+      --gold-light: #ecdcb1;
+      --onblue: #111317;
+      --highlight: rgba(255,255,255,0.05);
+      --tag-bg: rgba(255,255,255,0.07);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    :root[data-theme="light"] {
+      --bg: #f5f6f8;
+      --side: #242830;
+      --side-surface: #2e333d;
+      --ink: #1c2025;
+      --mute: #59616c;
+      --card: #ffffff;
+      --line: #d8dce2;
+      --blue: #2f3844;
+      --blue-accent: #3b82f6;
+      --gold: #bda369;
+      --gold-light: #dfcaa0;
+      --onside: #eef1f5;
+      --onblue: #ffffff;
+      --highlight: #eef2f9;
+      --tag-bg: #eceff3;
+      --shadow: 0 16px 36px rgba(18, 24, 33, 0.08);
+      --card-shadow: 0 6px 18px rgba(14, 20, 28, 0.04);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 15.5px/1.65 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      margin: 0;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    a { color: inherit; text-decoration: none; }
+    
+    .layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    aside {
+      background: var(--side);
+      color: var(--onside);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 38px 28px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      z-index: 50;
+    }
+    .profile-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .avatar-frame {
+      width: 146px;
+      height: 146px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--gold), #f3e5c0, var(--gold));
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      position: relative;
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      background-color: #3b414a;
+    }
+    .avatar-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold), #eedcb2);
+      color: var(--side);
+      font: 700 44px 'Libre Baskerville', serif;
+    }
+    aside h1 {
+      font-size: 26px;
+      margin: 20px 0 6px;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .role {
+      font-size: 14.5px;
+      color: #c4cad3;
+      margin: 0 0 22px;
+      font-weight: 500;
+    }
+    .location-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #9ea8b5;
+      margin-bottom: 22px;
+    }
+    .location-tag svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--gold);
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    nav a {
+      color: #c6ccd4;
+      padding: 8px 14px;
+      border-left: 3px solid transparent;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 500;
+      font-size: 14.5px;
+    }
+    nav a:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.06);
+      border-left-color: rgba(189, 163, 105, 0.5);
+    }
+    nav a.on {
+      color: #ffffff;
+      border-left-color: var(--gold);
+      background: rgba(255,255,255,0.09);
+      font-weight: 600;
+    }
+
+    .contact-box {
+      margin-top: auto;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #d1d6dc;
+      transition: color 0.2s ease;
+      word-break: break-all;
+    }
+    .contact-link:hover {
+      color: var(--gold-light);
+    }
+    .contact-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      fill: currentColor;
+      opacity: 0.85;
+    }
+
+    /* Main Content Area */
+    main {
+      max-width: 960px;
+      width: 100%;
+      padding: 56px 6vw 90px;
+      margin: 0 auto;
+    }
+    section {
+      margin-bottom: 74px;
+      scroll-margin-top: 40px;
+    }
+    h2 {
+      display: inline-block;
+      font-size: 28px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold);
+      margin-bottom: 28px;
+      color: var(--ink);
+    }
+    .intro {
+      max-width: 44em;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    /* Key stats bar */
+    .stat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 26px;
+    }
+    .stat-pill {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--card-shadow);
+      color: var(--ink);
+    }
+    .stat-pill .indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* Interactive Chat preview widget from template */
+    .chat {
+      margin-top: 26px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 22px;
+      max-width: 650px;
+      box-shadow: var(--shadow);
+    }
+    .chat-head {
+      font-size: 12px;
+      color: var(--mute);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #10b981;
+      font-size: 11px;
+    }
+    .chat-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+    .msgs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .msg {
+      padding: 12px 16px;
+      border-radius: 12px;
+      max-width: 88%;
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .msg.bot {
+      background: var(--highlight);
+      border-bottom-left-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .msg.me {
+      background: var(--side);
+      color: var(--onside);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+    }
+    .chips span {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: var(--ink);
+      background: var(--tag-bg);
+      font-weight: 500;
+    }
+
+    /* Experience Items */
+    .item {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 24px;
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+    }
+    .item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .when {
+      color: var(--mute);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .item h3 {
+      font-size: 20px;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+    .org {
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .item ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .item li {
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .item li strong {
+      color: var(--ink);
+    }
+
+    /* Projects Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--blue);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .card.feat {
+      grid-column: 1 / -1;
+      background: var(--side);
+      color: var(--onside);
+      border-top-color: var(--gold);
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .card p {
+      margin: 0 0 16px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink);
+      flex-grow: 1;
+    }
+    .feat p {
+      color: #dbe0e8;
+    }
+    .feat .when {
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .tags span {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--ink);
+      border-radius: 4px;
+      font-size: 12.5px;
+      padding: 3px 10px;
+      font-weight: 500;
+    }
+    .feat .tags span {
+      background: rgba(255,255,255,0.12);
+      color: #f0f3f8;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Skills section */
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 20px 24px;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+    }
+    .skills-wrap strong {
+      display: block;
+      padding-top: 4px;
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .skills-divider {
+      grid-column: 1 / -1;
+      border-top: 1px dashed var(--line);
+      margin: 4px 0;
+    }
+
+    /* Education & Awards */
+    .award {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: var(--card-shadow);
+    }
+    .badge {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #1a1e24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 12.5px 'Libre Franklin', sans-serif;
+      text-align: center;
+      line-height: 1.15;
+      padding: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+    .badge.scholar {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+    }
+    .award h3 {
+      font-size: 18px;
+      color: var(--ink);
+    }
+    .award p {
+      margin: 4px 0 0;
+      font-size: 14.5px;
+      color: var(--mute);
+    }
+    .award-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .certs-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: var(--card-shadow);
+    }
+    .certs-box h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .certs {
+      columns: 2;
+      column-gap: 32px;
+      padding-left: 20px;
+      margin: 0;
+    }
+    .certs li {
+      margin-bottom: 12px;
+      break-inside: avoid;
+      font-size: 14.5px;
+    }
+
+    /* CTA buttons */
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--side);
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 13px 24px;
+      font-weight: 600;
+      font-size: 14.5px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .cta:hover {
+      background: #39404d;
+      transform: translateY(-2px);
+    }
+    .cta.primary-gold {
+      background: var(--gold);
+      color: #1a1e24;
+      font-weight: 700;
+      border: none;
+    }
+    .cta.primary-gold:hover {
+      background: #cbb886;
+    }
+    .cta.alt {
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--line);
+      box-shadow: none;
+    }
+    .cta.alt:hover {
+      border-color: var(--ink);
+      background: var(--highlight);
+    }
+
+    /* Mobile Responsive Adaptation */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      aside {
+        position: static;
+        height: auto;
+        padding: 26px 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-wrap {
+        align-items: center;
+      }
+      .avatar-frame {
+        width: 110px;
+        height: 110px;
+      }
+      aside h1 {
+        font-size: 24px;
+        margin: 14px 0 4px;
+      }
+      .role {
+        margin: 0 0 12px;
+      }
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 6px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 14px;
+      }
+      nav a {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-size: 13.5px;
+      }
+      nav a.on {
+        border-bottom-color: var(--gold);
+        border-left: none;
+      }
+      .contact-box {
+        width: 100%;
+        align-items: center;
+        padding-top: 16px;
+        margin-top: 16px;
+      }
+      main {
+        padding: 40px 20px 60px;
+      }
+      .item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .skills-wrap {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 20px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .certs {
+        columns: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="layout">
-<aside>
-<img class="ph" src="data:image/jpeg;base64,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" alt="Rishitha Rumandla">
-<div><h1>Rishitha Rumandla</h1><p class="role">AI Developer · Full-Stack Programmer</p></div>
-<nav id="nav"><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#projects">Projects</a><a href="#awards">Achievements</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
-<div class="contact"><a href="mailto:rishitharumandla04@gmail.com">rishitharumandla04@gmail.com</a><span>+91 86882 70630</span><span>Hyderabad, India</span></div>
-</aside>
+  <div class="layout">
+    <!-- Left Fixed Navigation Sidebar -->
+    <aside>
+      <div class="profile-wrap">
+        <div class="avatar-frame">
+          <img 
+            class="avatar-img" 
+            src="WhatsApp Image 2026-10-16 at 11.08.42.jpeg" 
+            alt="Rishitha Rumandla"
+            onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';"
+          />
+          <div id="avatarFallback" class="avatar-fallback">RR</div>
+        </div>
 
-<main>
-<section id="about"><h2>About</h2>
-<p class="intro">I build production-ready AI applications: LLM chatbots on local models, voice agents for healthcare, and workflow automation across web and desktop. I like work with real impact, from deployment to teamwork.</p>
-<div class="chat"><h3>Quick answers from Rishitha</h3><div class="msgs" id="msgs"><div class="m bot">Pick a question and I'll answer.</div></div><div class="chips" id="chips"></div></div>
-</section>
+        <h1>Rishitha Rumandla</h1>
+        <p class="role">AI Developer & Full-Stack Engineer</p>
 
-<section id="experience"><h2>Experience</h2>
-<div class="item"><div class="when">Feb 2025 – Apr 2026<br>Hyderabad</div><div><h3>AI Intern</h3><div class="org">SpinSci Technologies</div>
-<ul><li>Built chatbots on local LLMs with LangChain, including a PDF analyzer for interactive Q&amp;A.</li><li>Developed VAPI voice agents and agentic workflows for healthcare: refill scheduling, billing and appointment booking.</li><li>Automated desktop and browser work with Sirenia, Manatee, Selenium, PyWinAuto and Power Automate.</li><li>Created an executive dashboard (hours, projects, Jira) and a React.js Patient Assistant dashboard over multiple APIs.</li></ul></div></div>
-<div class="item"><div class="when">Sept – Dec 2024<br>Hyderabad</div><div><h3>GenAI Intern</h3><div class="org">Innomatics Research Labs</div>
-<ul><li>Cleaned datasets, built and evaluated predictive models, and applied generative AI to practical problems.</li></ul></div></div>
-</section>
+        <div class="location-tag">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Hyderabad, India
+        </div>
+      </div>
 
-<section id="education"><h2>Education</h2>
-<div class="item"><div class="when">2022 – 2026</div><div><h3>B.Tech, CSE (AI &amp; ML)</h3><div class="org">MLR Institute of Technology, Hyderabad</div><div>CGPA: 8.68</div></div></div>
-<div class="item"><div class="when">2020 – 2022</div><div><h3>Intermediate (M.P.C)</h3><div class="org">Sri Akshaya Junior College, Sangareddy</div><div>Percentage: 95.1%</div></div></div>
-</section>
+      <nav id="sidebar-nav">
+        <a href="#about" class="on">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education & Awards</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<section id="projects"><h2>Projects</h2>
-<div class="grid">
-<div class="card feat"><div class="when">Jul 2025 – Apr 2026</div><h3>EduBotInsight: feedback mining with a conversational robot</h3>
-<p>Turned my college's campus robot into a privacy-preserving voice companion. It uses on-device speech recognition, a Qwen 2.5 model with RAG, and English and Telugu speech. Face detection notices presence without storing identity. It has an anonymous student mode, aggregated analytics and safety-keyword email alerts, and runs fully on campus hardware.</p>
-<div class="tags"><span>Qwen 2.5</span><span>RAG</span><span>FAISS</span><span>Vosk</span><span>LiveKit</span><span>YOLOv8-face</span><span>Indic Parler TTS</span></div></div>
-<div class="card"><h3>AI Twitter Bot</h3><p>Crawls trending topics, writes context-aware tweets with Llama 3.2 and Gemini, and posts them on a schedule.</p><div class="tags"><span>Ollama</span><span>Gemini</span><span>Selenium</span><span>Playwright</span></div></div>
-<div class="card"><h3>PDF Chatbot Analyzer</h3><p>Ask questions about any PDF using semantic search and ranking over Llama 3.2, Mistral and Gemma.</p><div class="tags"><span>Ollama</span><span>FAISS</span><span>LangChain</span></div></div>
-<div class="card"><h3>Podcast Assistant</h3><p>Generates episode ideas and scripts and remembers each creator's style with vector embeddings.</p><div class="tags"><span>Flask</span><span>Gemini</span><span>Supabase</span></div></div>
-<div class="card"><h3>Diamond Price Predictor</h3><p>Live price estimates from a Random Forest model with an interactive interface.</p><div class="tags"><span>Streamlit</span><span>Scikit-learn</span><span>Pandas</span></div></div>
-</div>
-<p><a href="https://github.com/RishithaRumandla24">More projects on GitHub</a></p>
-</section>
+      <div class="contact-box">
+        <a class="contact-link" href="mailto:rishitharumandla04@gmail.com" title="Email">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>rishitharumandla04@gmail.com</span>
+        </a>
+        <a class="contact-link" href="tel:+918688270630" title="Phone">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>+91 8688270630</span>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/rishitharumandla04" target="_blank" rel="noreferrer" title="LinkedIn">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+          <span>rishitharumandla04</span>
+        </a>
+      </div>
+    </aside>
 
-<section id="awards"><h2>Achievements</h2>
-<div class="award"><div class="badge">3rd<br>Prize</div><div><h3>SpinSci AI Hackathon (India-wide)</h3><p>A behavioural-analysis chatbot that predicts behaviour from conversations and detected activity.</p></div></div>
-<div class="award"><div class="badge">3rd<br>Prize</div><div><h3>App Fiesta</h3><p>"Doctor Babu": medicine e-commerce with a blood donor bank and 24/7 medical supply support.</p></div></div>
-<div class="award"><div class="badge">Top<br>15</div><div><h3>Technowthon Hackathon, T-Hub</h3><p>An open chat platform connecting orphanages and donors.</p></div></div>
-<div class="award"><div class="badge">₹45k<br>/yr</div><div><h3>Lila Poonawalla Scholarship</h3><p>Awarded annually since 2022 for academic merit.</p></div></div>
-</section>
+    <!-- Main Content Stream -->
+    <main>
+      <!-- About / Intro Section -->
+      <section id="about">
+        <h2>About</h2>
+        <p class="intro">
+          Motivated <strong>AI Developer and Full-Stack Programmer</strong> with hands-on experience in building production-ready applications, integrating LLMs, and automating complex workflows across web and desktop platforms. Delivered internal data-extraction, verification, and mailing-automation systems as a freelance developer for Pulsus Health Tech. Proven track record across hackathons and real-world deployments with a sharp focus on scalability and impact.
+        </p>
 
-<section id="skills"><h2>Skills</h2>
-<div class="sk">
-<b>AI and LLMs</b><div class="tags"><span>LangChain</span><span>LangGraph</span><span>RAG</span><span>Agentic AI</span><span>Prompt writing</span><span>Ollama</span><span>Gemini</span><span>Groq</span><span>BERT</span><span>Qwen</span><span>Mistral</span><span>Gemma</span><span>FAISS</span></div>
-<b>Languages</b><div class="tags"><span>Python</span><span>Java</span><span>C</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>SQL</span></div>
-<b>Data and ML</b><div class="tags"><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>TensorFlow</span><span>Matplotlib</span><span>NLTK</span></div>
-<b>Build and automate</b><div class="tags"><span>React.js</span><span>Node.js</span><span>Flask</span><span>Streamlit</span><span>Selenium</span><span>Playwright</span><span>PyWinAuto</span><span>Docker</span><span>Git</span><span>Postman</span></div>
-<b>Voice and tools</b><div class="tags"><span>VAPI</span><span>LiveKit</span><span>Vosk</span><span>Cursor</span><span>BMAD</span><span>Claude</span></div>
-</div>
-<h3 style="margin:36px 0 14px;font-size:20px">Certifications</h3>
-<ul class="certs"><li>NPTEL: Joy of Computing in Python (71%)</li><li>IUCEE: AI for All</li><li>Cisco: Python Essentials 1 and 2</li><li>Cisco: Data Analytics Essentials</li><li>HackerRank: Software Engineer Intern</li><li>Infosys Springboard: Java</li><li>Accenture: Data Science Analysis</li><li>IBM: Python (PY0101EN)</li><li>Autodesk: Fusion 360</li></ul>
-</section>
+        <div class="stat-pills">
+          <div class="stat-pill">
+            <span class="indicator"></span>
+            <span>B.Tech CSE (AIML) &bull; CGPA: 8.68</span>
+          </div>
+          <div class="stat-pill">
+            <span class="indicator"></span>
+            <span>1.2+ Years Enterprise & AI Internship</span>
+          </div>
+          <div class="stat-pill">
+            <span class="indicator"></span>
+            <span>Lila Poonawalla Merit Scholar</span>
+          </div>
+        </div>
 
-<section id="contact"><h2>Contact</h2>
-<p>Open to AI developer roles. Let's talk.</p>
-<a class="cta" href="mailto:rishitharumandla04@gmail.com">Email me</a><a class="cta alt" href="https://www.linkedin.com/in/rishitharumandla04">LinkedIn</a><a class="cta alt" href="https://github.com/RishithaRumandla24">GitHub</a>
-</section>
-</main>
-</div>
-<script>
-const ph=document.querySelector('img.ph');ph.addEventListener('error',()=>{const d=document.createElement('div');d.className='ph';d.textContent='RR';ph.replaceWith(d)});
-const Q=[["What have you built?","My biggest project is EduBotInsight, a private voice companion for my campus robot. I've also built RAG chatbots, a Twitter bot and healthcare voice agents."],["Where have you worked?","I was an AI Intern at SpinSci for 14 months (Feb 2025 to Apr 2026) and a GenAI Intern at Innomatics Research Labs in late 2024."],["What's your stack?","Python, LangChain and local LLMs with Ollama, RAG with FAISS, React.js for dashboards, and Selenium or Playwright for automation."],["Any awards?","3rd place at the SpinSci AI Hackathon and at App Fiesta, and a Top 15 finish at Technowthon at T-Hub."]];
-const msgs=document.getElementById('msgs'),chips=document.getElementById('chips');
-function add(t,c){const d=document.createElement('div');d.className='m '+c;d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
-Q.forEach(([q,a])=>{const b=document.createElement('button');b.textContent=q;b.onclick=()=>{add(q,'me');setTimeout(()=>add(a,'bot'),400)};chips.appendChild(b)});
-const links=[...document.querySelectorAll('#nav a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
-addEventListener('scroll',()=>{let i=0;secs.forEach((s,n)=>{if(s.getBoundingClientRect().top<innerHeight*.4)i=n});links.forEach((l,n)=>l.classList.toggle('on',n===i))},{passive:true});
-</script>
+        <!-- Interactive Chat preview from template -->
+        <div class="chat">
+          <div class="chat-head">
+            <span>Specialization & Workflow</span>
+            <span class="chat-status">Ready to build</span>
+          </div>
+          <div class="msgs">
+            <div class="msg bot">
+              What kind of AI engineering and automation solutions do you deploy?
+            </div>
+            <div class="msg me">
+              I architect end-to-end agentic workflows, local LLM/RAG pipelines, and high-throughput automation engines that turn unstructured research & enterprise data into reliable actions.
+            </div>
+          </div>
+          <div class="chips">
+            <span>LangChain & LangGraph</span>
+            <span>Local LLMs & Ollama</span>
+            <span>Agentic AI & VAPI</span>
+            <span>FastAPI & Flask</span>
+            <span>React.js</span>
+            <span>Selenium & Playwright</span>
+            <span>FAISS / Vector Search</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <!-- Pulsus Health Tech -->
+        <div class="item">
+          <div class="when">
+            Jul 2026 — Oct 2026
+            <div style="font-size: 12px; color: var(--mute); font-weight: normal; margin-top: 4px;">Hyderabad</div>
+          </div>
+          <div>
+            <h3>Freelance AI Developer</h3>
+            <div class="org">Pulsus Health Tech (Internal Services)</div>
+            <ul>
+              <li>
+                <strong>Academic Author & Email Extractor (Flask):</strong> Engineered an end-to-end harvester pulling papers across 9 scholarly repositories (PLOS, Europe PMC, eLife, OpenAlex, bioRxiv, Preprints.org, OpenAIRE, Frontiers, AHA Journals). Implemented bulk PDF extraction via <code>pdfplumber</code> with Crossref title/DOI fallbacks and strict deliverability verification (DNS, MX, and SMTP checks). Designed SQLite DOI tracking with pause/resume/save states to prevent redundant requests.
+              </li>
+              <li>
+                <strong>Campaigning Data Extractor:</strong> Programmed a high-performance, multithreaded extraction pipeline capturing targeted author contacts from PubMed, Europe PMC, and MDPI. Integrated World Bank high-income country filtering, publisher and generic mailbox exclusion algorithms, and automatic domain deduplication before CSV export.
+              </li>
+              <li>
+                <strong>Bulk Mailing Automation Dashboard (FastAPI, Selenium):</strong> Built an automated campaign dashboard driving personalized email runs through Roundcube webmail from Microsoft Word templates with rotating subject lines, real-time activity consoles, live progress monitoring, and persistent send logs that strictly prevent duplicate sends.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SpinSci Technologies -->
+        <div class="item">
+          <div class="when">
+            Feb 2025 — Apr 2026
+            <div style="font-size: 12px; color: var(--mute); font-weight: normal; margin-top: 4px;">1 yr 2 mos &bull; Hyderabad</div>
+          </div>
+          <div>
+            <h3>AI Intern</h3>
+            <div class="org">SpinSci Technologies LLC</div>
+            <ul>
+              <li>
+                <strong>PDF Chatbot Analyzer & Conversational Chatbots:</strong> Designed and deployed context-aware chatbots using local LLMs with LangChain; engineered a full document processing pipeline for interactive document Q&A and semantic understanding.
+              </li>
+              <li>
+                <strong>Desktop & Browser Automation:</strong> Engineered robust automated enterprise workflows with Sirenia, Manatee, and Selenium for dynamic browser interactions; automated complex desktop pipelines using PyWinAuto and Microsoft Power Automate.
+              </li>
+              <li>
+                <strong>VAPI Voice Agents & Agentic AI for Healthcare:</strong> Created interactive dashboards for automated prescription refill scheduling and medical billing workflows, implementing backend API orchestration and custom prompt engineering for real-time voice tasks.
+              </li>
+              <li>
+                <strong>Executive & Patient Dashboards:</strong> Constructed interactive operations dashboards unifying work hours, Jira tickets, and project milestones; developed responsive healthcare Patient Assistant Dashboards using <strong>React.js</strong> integrated with multiple REST APIs.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Innomatics Research Labs -->
+        <div class="item">
+          <div class="when">
+            Sep 2024 — Dec 2024
+            <div style="font-size: 12px; color: var(--mute); font-weight: normal; margin-top: 4px;">Hyderabad</div>
+          </div>
+          <div>
+            <h3>GenAI Intern</h3>
+            <div class="org">Innomatics Research Labs</div>
+            <ul>
+              <li>
+                Conducted end-to-end data science and generative AI workflows: raw data preprocessing, predictive modeling, fine-tuning, and model evaluation.
+              </li>
+              <li>
+                Built real-world applications leveraging modern Generative AI paradigms, strengthening data pipeline hygiene and model personalization for practical business challenges.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+          <!-- Featured Project: EduBot Insight -->
+          <article class="card feat">
+            <span class="when">Featured Flagship Project &bull; Jul 2025 — Apr 2026</span>
+            <h3>EduBot Insight – Autonomous Feedback Mining with Humanoid Agents</h3>
+            <p>
+              Converted MLRIT's physical campus robot into an autonomous, privacy-preserving voice companion. Engineered on-device speech recognition (Vosk + LiveKit) and intelligent response synthesis powered by <strong>Qwen 2.5-1.5B-Instruct</strong> with RAG using <strong>BGE-small-en</strong> embeddings and <strong>FAISS</strong>. Features bilingual TTS (Indic Parler for English/Telugu), facial presence tracking (YOLOv8-face + ByteTrack without identity storage), anonymous student mode, and automatic safety keyword escalation over secure SMTP. Entirely self-contained on campus hardware without third-party data leakage.
+            </p>
+            <div class="tags">
+              <span>Qwen 2.5</span>
+              <span>FAISS & RAG</span>
+              <span>Vosk & LiveKit</span>
+              <span>Indic Parler (TTS)</span>
+              <span>YOLOv8-face</span>
+              <span>On-Device AI</span>
+            </div>
+          </article>
+
+          <!-- News Aggregator -->
+          <article class="card">
+            <h3>AI News Aggregator & Trend Visualizer</h3>
+            <div class="when" style="margin-bottom: 8px;">Feb 2025 — Jun 2025</div>
+            <p>
+              Built a real-time extraction pipeline using Playwright and BeautifulSoup. Integrated Ollama (Llama 3.2) alongside the Google Gemini API for intelligent summary synthesis and contextual topic classification, presented via an interactive Streamlit dashboard tracking top sources, coverage volume, and category trends.
+            </p>
+            <div class="tags">
+              <span>Playwright</span>
+              <span>BeautifulSoup</span>
+              <span>Ollama (Llama 3.2)</span>
+              <span>Google Gemini</span>
+              <span>Streamlit</span>
+            </div>
+          </article>
+
+          <!-- PDF Chatbot Analyzer -->
+          <article class="card">
+            <h3>PDF Chatbot Analyzer</h3>
+            <div class="when" style="margin-bottom: 8px;">Vector Retrieval Engine</div>
+            <p>
+              Constructed a local vector-retrieval engine utilizing Ollama models (Llama 3.2, Mistral, Gemma) coupled with FAISS embeddings for semantic search and document ranking. Systematically benchmarked prompt templates and retrieval accuracy with a modular layout built for enterprise file integration.
+            </p>
+            <div class="tags">
+              <span>LangChain</span>
+              <span>FAISS</span>
+              <span>Mistral & Gemma</span>
+              <span>Vector Search</span>
+              <span>Python</span>
+            </div>
+          </article>
+
+          <!-- Podcast Assistant -->
+          <article class="card">
+            <h3>Podcast Assistant – AI Web App</h3>
+            <div class="when" style="margin-bottom: 8px;">Full-Stack AI Application</div>
+            <p>
+              Designed a full-stack Flask application integrating Google Gemini and Supabase for automated podcast idea generation, multi-speaker script creation, and personalized content delivery, employing vector embeddings for context-retaining user memory.
+            </p>
+            <div class="tags">
+              <span>Flask</span>
+              <span>Google Gemini API</span>
+              <span>Supabase</span>
+              <span>Vector Memory</span>
+            </div>
+          </article>
+
+          <!-- Doctor Babu / App Fiesta Project -->
+          <article class="card">
+            <h3>Doctor Babu – Healthcare & Blood Bank Hub</h3>
+            <div class="when" style="margin-bottom: 8px;">App Fiesta 3rd Prize Winner</div>
+            <p>
+              Developed a unified healthcare platform facilitating 24/7 medicine e-commerce, emergency real-time blood donor discovery, and automated hospital inventory alerts.
+            </p>
+            <div class="tags">
+              <span>Web / App</span>
+              <span>Healthcare API</span>
+              <span>Real-time DB</span>
+              <span>Emergency Services</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-wrap">
+          <strong>Programming & Core</strong>
+          <div class="tags">
+            <span>Python</span>
+            <span>Java</span>
+            <span>C</span>
+            <span>JavaScript</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>SQL</span>
+            <span>MySQL</span>
+            <span>OOP</span>
+            <span>DSA</span>
+            <span>DBMS</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>AI / ML & LLMs</strong>
+          <div class="tags">
+            <span>LangChain</span>
+            <span>LangGraph</span>
+            <span>Agentic AI</span>
+            <span>RAG</span>
+            <span>Ollama</span>
+            <span>Groq</span>
+            <span>Google Gemini</span>
+            <span>Qwen</span>
+            <span>Mistral</span>
+            <span>Gemma</span>
+            <span>BERT</span>
+            <span>TextBlob</span>
+            <span>NLP</span>
+            <span>Prompt Engineering</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>Frameworks & Tools</strong>
+          <div class="tags">
+            <span>React.js</span>
+            <span>FastAPI</span>
+            <span>Flask</span>
+            <span>Node.js</span>
+            <span>Streamlit</span>
+            <span>Selenium</span>
+            <span>Playwright</span>
+            <span>PyWinAuto</span>
+            <span>Docker</span>
+            <span>Git & GitHub</span>
+            <span>LiveKit</span>
+            <span>Vosk</span>
+            <span>Postman</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>Data & Automation</strong>
+          <div class="tags">
+            <span>Web Scraping</span>
+            <span>pdfplumber</span>
+            <span>SQLite</span>
+            <span>DNS / MX / SMTP Verification</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>FAISS</span>
+            <span>Matplotlib</span>
+            <span>NLTK</span>
+            <span>SSE</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>Platforms & AI Suite</strong>
+          <div class="tags">
+            <span>VAPI Voice AI</span>
+            <span>Cursor</span>
+            <span>BMAD</span>
+            <span>Claude AI</span>
+            <span>Sirenia & Manatee</span>
+            <span>Power Automate</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Certifications Section -->
+      <section id="education">
+        <h2>Education & Achievements</h2>
+
+        <!-- Education -->
+        <div class="item" style="padding-top: 0; border-top: none;">
+          <div class="when">2022 — 2026</div>
+          <div>
+            <h3>Bachelor of Technology in CSE (AI & ML)</h3>
+            <div class="org">MLR Institute of Technology, Hyderabad</div>
+            <p style="margin: 0; font-size: 15px;"><strong>CGPA: 8.68</strong> &bull; Specialized in Artificial Intelligence, Machine Learning, and Computer Vision.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">2020 — 2022</div>
+          <div>
+            <h3>Intermediate (M.P.C)</h3>
+            <div class="org">Sri Akshaya Junior College, Sangareddy</div>
+            <p style="margin: 0; font-size: 15px;"><strong>Score: 95.1%</strong> &bull; Mathematics, Physics, and Chemistry foundation.</p>
+          </div>
+        </div>
+
+        <!-- Awards & Hackathons -->
+        <h3 style="font-size: 21px; margin: 34px 0 18px;">Honors & Hackathon Awards</h3>
+
+        <div class="award">
+          <div class="badge">3rd</div>
+          <div>
+            <div class="award-sub">India-Wide Hackathon</div>
+            <h3>SpinSci AI Hackathon &bull; 3rd Prize</h3>
+            <p>Developed an AI-powered behavioral analysis chatbot capable of predicting user behavior patterns from multi-turn dialogues and detected activities.</p>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="badge">3rd</div>
+          <div>
+            <div class="award-sub">Healthcare Innovation</div>
+            <h3>App Fiesta &bull; 3rd Prize</h3>
+            <p>Built "Doctor Babu" — a full-scale medicine e-commerce solution with integrated blood donor bank offering 24/7 medical supply coordination.</p>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="badge">Top 15</div>
+          <div>
+            <div class="award-sub">T-Hub State Innovation</div>
+            <h3>Technowthon Hackathon &bull; Top 15 Finalist</h3>
+            <p>Designed and presented an open chat platform bridging communication between verified orphanages and direct donors, pitched live at T-Hub Hyderabad.</p>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="badge scholar">Merit</div>
+          <div>
+            <div class="award-sub">Scholarship Recognition</div>
+            <h3>Lila Poonawalla Foundation Scholar</h3>
+            <p>Awarded INR 45,000 annually since 2022 in competitive recognition of consistent academic excellence and technical potential.</p>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="certs-box" id="certs">
+          <h3>Certifications & Credentials</h3>
+          <ul class="certs">
+            <li><strong>NPTEL:</strong> The Joy of Computing in Python (Elite Score: 71%)</li>
+            <li><strong>IUCEE:</strong> 8-week Intensive 'Artificial Intelligence for All' Program</li>
+            <li><strong>Cisco Networking Academy:</strong> Python Essentials 1 & 2</li>
+            <li><strong>HackerRank:</strong> Certified Software Engineering Intern</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact / CTA Section -->
+      <section id="contact">
+        <h2>Let's Connect</h2>
+        <p class="intro">
+          I am actively exploring AI engineering roles, LLM/Agentic product teams, and high-impact software development opportunities. Feel free to reach out directly.
+        </p>
+        <div class="cta-row">
+          <a class="cta primary-gold" href="mailto:rishitharumandla04@gmail.com">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email Me
+          </a>
+          <a class="cta" href="https://linkedin.com/in/rishitharumandla04" target="_blank" rel="noreferrer">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+            LinkedIn Profile
+          </a>
+          <a class="cta alt" href="tel:+918688270630">
+            <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            +91 8688270630
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scrollspy for navigation highlight
+    window.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main section');
+      const navLinks = document.querySelectorAll('#sidebar-nav a');
+
+      function updateActiveNav() {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 120;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        if (currentSectionId) {
+          navLinks.forEach(link => {
+            link.classList.remove('on');
+            if (link.getAttribute('href') === '#' + currentSectionId) {
+              link.classList.add('on');
+            }
+          });
+        }
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+    });
+  </script>
 </body>
 </html>
