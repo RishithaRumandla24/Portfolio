@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rishitha Rumandla – AI Developer & Full-Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e1116;
+      --side: #090c10;
+      --side-surface: #131720;
+      --ink: #f0f3f8;
+      --mute: #8e97a5;
+      --card: #151921;
+      --card-alt: #1a202a;
+      --line: #252c38;
+      --blue: #cbd3de;
+      --blue-accent: #38bdf8;
+      --gold: #cbb886;
+      --gold-light: #eeddb2;
+      --gold-bg: rgba(203, 184, 134, 0.12);
+      --onside: #e6ebf2;
+      --onblue: #0b0e14;
+      --highlight: rgba(255, 255, 255, 0.04);
+      --tag-bg: #1c222c;
+      --tag-border: #2a3342;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 15.5px/1.65 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      margin: 0;
+      line-height: 1.28;
+      font-weight: 700;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 310px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    aside {
+      background: var(--side);
+      color: var(--onside);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 36px 26px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      border-right: 1px solid var(--line);
+      z-index: 50;
+    }
+    .profile-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .avatar-frame {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      padding: 3.5px;
+      background: linear-gradient(135deg, var(--gold), #f3e5c0, #967f4a);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      background-color: #242933;
+    }
+    .avatar-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold), #eedcb2);
+      color: var(--side);
+      font: 700 42px 'Libre Baskerville', serif;
+    }
+    aside h1 {
+      font-size: 24px;
+      margin: 18px 0 6px;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .role {
+      font-size: 14px;
+      color: #9aa5b5;
+      margin: 0 0 18px;
+      font-weight: 500;
+    }
+    .location-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #838e9e;
+      margin-bottom: 22px;
+    }
+    .location-tag svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--gold);
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    nav a {
+      color: #a4afbe;
+      padding: 8px 12px;
+      border-left: 3px solid transparent;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 500;
+      font-size: 14px;
+    }
+    nav a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border-left-color: rgba(203, 184, 134, 0.5);
+    }
+    nav a.on {
+      color: #ffffff;
+      border-left-color: var(--gold);
+      background: rgba(203, 184, 134, 0.1);
+      font-weight: 600;
+    }
+
+    .contact-box {
+      margin-top: auto;
+      padding-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #a9b4c2;
+      transition: color 0.2s ease;
+      word-break: break-all;
+    }
+    .contact-link:hover {
+      color: var(--gold-light);
+    }
+    .contact-icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      fill: currentColor;
+      opacity: 0.85;
+    }
+
+    /* Main Content Area */
+    main {
+      max-width: 980px;
+      width: 100%;
+      padding: 50px 6vw 90px;
+      margin: 0 auto;
+    }
+    section {
+      margin-bottom: 70px;
+      scroll-margin-top: 40px;
+    }
+    h2 {
+      display: inline-block;
+      font-size: 27px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--gold);
+      margin-bottom: 26px;
+      color: var(--ink);
+    }
+    .intro {
+      max-width: 44em;
+      font-size: 17.5px;
+      line-height: 1.7;
+      color: #d1d8e2;
+    }
+
+    /* Key stats bar */
+    .stat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 24px;
+    }
+    .stat-pill {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 7px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #dde3ec;
+    }
+    .stat-pill .indicator {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* Interactive Chat preview widget from template */
+    .chat {
+      margin-top: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+      max-width: 660px;
+      box-shadow: var(--card-shadow);
+    }
+    .chat-head {
+      font-size: 12px;
+      color: var(--mute);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #34d399;
+      font-size: 11px;
+    }
+    .chat-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #34d399;
+      border-radius: 50%;
+    }
+    .msgs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+    .msg {
+      padding: 12px 16px;
+      border-radius: 10px;
+      max-width: 88%;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .msg.bot {
+      background: var(--side-surface);
+      border: 1px solid var(--line);
+      border-bottom-left-radius: 2px;
+      color: #dbe2ec;
+    }
+    .msg.me {
+      background: #202734;
+      color: #ffffff;
+      border: 1px solid #2d3748;
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+    }
+    .chips span {
+      display: inline-block;
+      padding: 4px 11px;
+      border: 1px solid var(--tag-border);
+      border-radius: 999px;
+      font-size: 12px;
+      color: #c7d1df;
+      background: var(--tag-bg);
+      font-weight: 500;
+    }
+
+    /* Experience Items */
+    .item {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+    .item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .when {
+      color: var(--mute);
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .item h3 {
+      font-size: 19px;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+    .org {
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 14.5px;
+      margin-bottom: 12px;
+    }
+    .item ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .item li {
+      margin-bottom: 9px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #cad3df;
+    }
+    .item li strong {
+      color: #ffffff;
+    }
+
+    /* Projects Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 3.5px solid #2d3748;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-top-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-top-color: var(--gold);
+    }
+    .card.feat {
+      grid-column: 1 / -1;
+      background: var(--side-surface);
+      border-top-color: var(--gold);
+    }
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+    }
+    .card p {
+      margin: 0 0 16px;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #c4cdd9;
+      flex-grow: 1;
+    }
+    .feat p {
+      color: #cfd8e5;
+    }
+    .feat .when {
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .tags span {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: #cbd4e0;
+      border: 1px solid var(--tag-border);
+      border-radius: 5px;
+      font-size: 12px;
+      padding: 3px 9px;
+      font-weight: 500;
+    }
+
+    /* Skills section styled table/grid */
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 18px 24px;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 26px 28px;
+      box-shadow: var(--card-shadow);
+    }
+    .skills-wrap strong {
+      display: block;
+      font-size: 14.5px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .skills-divider {
+      grid-column: 1 / -1;
+      border-top: 1px dashed var(--line);
+      margin: 2px 0;
+    }
+
+    /* Education & Awards */
+    .award {
+      display: grid;
+      grid-template-columns: 66px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: var(--card-shadow);
+    }
+    .badge {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #0b0e14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 12px 'Libre Franklin', sans-serif;
+      text-align: center;
+      line-height: 1.15;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+    .badge.scholar {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+    }
+    .award h3 {
+      font-size: 17.5px;
+      color: #ffffff;
+    }
+    .award p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: #9aa4b2;
+    }
+    .award-sub {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .certs-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px;
+      margin-top: 22px;
+      box-shadow: var(--card-shadow);
+    }
+    .certs-box h3 {
+      font-size: 17.5px;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+    .certs {
+      columns: 2;
+      column-gap: 28px;
+      padding-left: 20px;
+      margin: 0;
+    }
+    .certs li {
+      margin-bottom: 10px;
+      break-inside: avoid;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+    .certs li strong {
+      color: #ffffff;
+    }
+
+    /* CTA buttons */
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1c222c;
+      color: #ffffff;
+      border-radius: 7px;
+      padding: 11px 22px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      border: 1px solid var(--line);
+    }
+    .cta:hover {
+      background: #252e3b;
+      transform: translateY(-2px);
+      border-color: #3b4656;
+    }
+    .cta.primary-gold {
+      background: var(--gold);
+      color: #0d1117;
+      font-weight: 700;
+      border: none;
+    }
+    .cta.primary-gold:hover {
+      background: var(--gold-light);
+    }
+    .cta.alt {
+      background: transparent;
+      color: #d1d8e2;
+      border: 1px solid var(--line);
+    }
+    .cta.alt:hover {
+      border-color: #515d6e;
+      color: #ffffff;
+    }
+
+    /* Responsive Breakdown */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      aside {
+        position: static;
+        height: auto;
+        padding: 24px 18px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-wrap {
+        align-items: center;
+      }
+      .avatar-frame {
+        width: 110px;
+        height: 110px;
+      }
+      aside h1 {
+        font-size: 22px;
+        margin: 12px 0 4px;
+      }
+      .role {
+        margin: 0 0 12px;
+      }
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 6px;
+        padding-top: 14px;
+      }
+      nav a {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+      nav a.on {
+        border-bottom-color: var(--gold);
+        border-left: none;
+      }
+      .contact-box {
+        width: 100%;
+        align-items: center;
+        padding-top: 16px;
+        margin-top: 16px;
+      }
+      main {
+        padding: 36px 18px 60px;
+      }
+      .item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .skills-wrap {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 20px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .certs {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- Left Navigation Sidebar -->
+    <aside>
+      <div class="profile-wrap">
+        <div class="avatar-frame">
+          <img 
+            class="avatar-img" 
+            src="img.jpeg"
+            alt="Rishitha Rumandla"
+            onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';"
+          />
+          <div id="avatarFallback" class="avatar-fallback">RR</div>
+        </div>
+
+        <h1>Rishitha Rumandla</h1>
+        <p class="role">AI Developer & Full-Stack Engineer</p>
+
+        <div class="location-tag">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Hyderabad, India
+        </div>
+      </div>
+
+      <nav id="sidebar-nav">
+        <a href="#about" class="on">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education & Awards</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="contact-box">
+        <a class="contact-link" href="mailto:rishitharumandla04@gmail.com" title="Email">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>rishitharumandla04@gmail.com</span>
+        </a>
+        <a class="contact-link" href="tel:+918688270630" title="Phone">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>+91 8688270630</span>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/rishitharumandla04" target="_blank" rel="noreferrer" title="LinkedIn">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+          <span>rishitharumandla04</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Flow -->
+    <main>
+      <!-- About Section -->
+      <section id="about">
+        <h2>About</h2>
+        <p class="intro">
+          Motivated <strong>AI Developer and Full-Stack Programmer</strong> with hands-on experience in building production-ready applications, integrating LLMs, and automating complex workflows across web and desktop platforms. Delivered internal data-extraction, verification, and mailing-automation systems as a freelance developer for Pulsus Health Tech. Proven track record across hackathons and real-world deployments with a sharp focus on scalability and impact.
+        </p>
+
+        <div class="stat-pills">
+          <div class="stat-pill">
+            <span class="indicator"></span>
+            <span>B.Tech CSE (AIML) &bull; CGPA: 8.68</span>
+          </div>
+          <div class="stat-pill">
+            <span class="indicator"></span>
+            <span>1.2+ Years Enterprise & AI Internship</span>
+          </div>
+          <div class="stat-pill">
+            <span class="indicator"></span>
+            <span>IEEE Xplore Author</span>
+          </div>
+          <div class="stat-pill">
+            <span class="indicator"></span>
+            <span>Lila Poonawalla Merit Scholar</span>
+          </div>
+        </div>
+
+        <!-- Specialization Preview Widget -->
+        <div class="chat">
+          <div class="chat-head">
+            <span>Specialization & Workflow</span>
+            <span class="chat-status">Ready to build</span>
+          </div>
+          <div class="msgs">
+            <div class="msg bot">
+              What kind of AI engineering and automation solutions do you deploy?
+            </div>
+            <div class="msg me">
+              I architect end-to-end agentic workflows, local LLM/RAG pipelines, and high-throughput automation engines that turn unstructured research & enterprise data into reliable actions.
+            </div>
+          </div>
+          <div class="chips">
+            <span>LangChain & LangGraph</span>
+            <span>Local LLMs & Ollama</span>
+            <span>Agentic AI & VAPI</span>
+            <span>FastAPI & Flask</span>
+            <span>React.js</span>
+            <span>Selenium & Playwright</span>
+            <span>FAISS / Vector Search</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications Section -->
+      <section id="publications">
+        <h2>Publications</h2>
+        <div class="card feat" style="padding: 26px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+            <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.12); padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.05em;">
+              <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+              IEEE Conference Publication
+            </span>
+            <span style="font-size: 13px; color: var(--mute); font-weight: 600;">IEEE Xplore &bull; 2026</span>
+          </div>
+
+          <h3 style="font-size: 21px; margin-bottom: 10px; line-height: 1.35; color: #ffffff;">
+            Cognitive Humanoid Agents for Intelligent Feedback Extraction in Learning Environments
+          </h3>
+
+          <p style="font-size: 14px; color: #a4b0bf; margin: 0 0 8px; font-weight: 500;">
+            <strong style="color: #ffffff;">Authors:</strong> G. Sowmya, <strong>Rumandla Rishitha</strong>, Voore Charan, Tammineni Pranay, Kalavagadda Trisha Chandrika
+          </p>
+
+          <p style="font-size: 13.5px; color: #8e9bb0; margin: 0 0 14px; line-height: 1.5;">
+            <strong style="color: #ffffff;">Published in:</strong> 2026 International Conference on Computational Robotics, Testing and Engineering Evaluation (ICCRTEE)<br>
+            <span style="font-size: 12.5px; color: var(--mute);">Publisher: <strong>IEEE</strong> &bull; Electronic ISBN: 979-8-3315-5256-5 &bull; Document ID: 11566450</span>
+          </p>
+
+          <p style="font-size: 14.5px; line-height: 1.6; color: #cfd8e5; margin-bottom: 20px;">
+            Investigated private-by-design autonomous student feedback acquisition during university counselling using local quantized LLM inference (Qwen 2.5-1.5B), on-device speech processing with Vosk and Indic Parler TTS, FAISS vector retrieval, and YOLOv8-face presence verification without biometric data retention.
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding-top: 16px; border-top: 1px dashed var(--line);">
+            <div class="tags" style="margin: 0;">
+              <span>Humanoid Robotics</span>
+              <span>On-Device LLMs</span>
+              <span>Speech Recognition</span>
+              <span>Edge AI</span>
+              <span>FAISS RAG</span>
+            </div>
+
+            <a
+              href="https://ieeexplore.ieee.org/document/11566450/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta primary-gold"
+            >
+              <span>View on IEEE Xplore</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <!-- Pulsus Health Tech -->
+        <div class="item">
+          <div class="when">
+            Jul 2026 — Oct 2026
+            <div style="font-size: 12px; color: var(--mute); font-weight: normal; margin-top: 4px;">Hyderabad</div>
+          </div>
+          <div>
+            <h3>Freelance AI Developer</h3>
+            <div class="org">Pulsus Health Tech (Internal Services)</div>
+            <ul>
+              <li>
+                <strong>Academic Author & Email Extractor (Flask):</strong> Engineered an end-to-end harvester pulling papers across 9 scholarly repositories (PLOS, Europe PMC, eLife, OpenAlex, bioRxiv, Preprints.org, OpenAIRE, Frontiers, AHA Journals). Implemented bulk PDF extraction via <code>pdfplumber</code> with Crossref title/DOI fallbacks and strict deliverability verification (DNS, MX, and SMTP checks). Designed SQLite DOI tracking with pause/resume/save states to prevent redundant requests.
+              </li>
+              <li>
+                <strong>Campaigning Data Extractor:</strong> Programmed a high-performance, multithreaded extraction pipeline capturing targeted author contacts from PubMed, Europe PMC, and MDPI. Integrated World Bank high-income country filtering, publisher and generic mailbox exclusion algorithms, and automatic domain deduplication before CSV export.
+              </li>
+              <li>
+                <strong>Bulk Mailing Automation Dashboard (FastAPI, Selenium):</strong> Built an automated campaign dashboard driving personalized email runs through Roundcube webmail from Microsoft Word templates with rotating subject lines, real-time activity consoles, live progress monitoring, and persistent send logs that strictly prevent duplicate sends.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SpinSci Technologies -->
+        <div class="item">
+          <div class="when">
+            Feb 2025 — Apr 2026
+            <div style="font-size: 12px; color: var(--mute); font-weight: normal; margin-top: 4px;">1 yr 2 mos &bull; Hyderabad</div>
+          </div>
+          <div>
+            <h3>AI Intern</h3>
+            <div class="org">SpinSci Technologies LLC</div>
+            <ul>
+              <li>
+                <strong>PDF Chatbot Analyzer & Conversational Chatbots:</strong> Designed and deployed context-aware chatbots using local LLMs with LangChain; engineered a full document processing pipeline for interactive document Q&A and semantic understanding.
+              </li>
+              <li>
+                <strong>Desktop & Browser Automation:</strong> Engineered robust automated enterprise workflows with Sirenia, Manatee, and Selenium for dynamic browser interactions; automated complex desktop pipelines using PyWinAuto and Microsoft Power Automate.
+              </li>
+              <li>
+                <strong>VAPI Voice Agents & Agentic AI for Healthcare:</strong> Created interactive dashboards for automated prescription refill scheduling and medical billing workflows, implementing backend API orchestration and custom prompt engineering for real-time voice tasks.
+              </li>
+              <li>
+                <strong>Executive & Patient Dashboards:</strong> Constructed interactive operations dashboards unifying work hours, Jira tickets, and project milestones; developed responsive healthcare Patient Assistant Dashboards using <strong>React.js</strong> integrated with multiple REST APIs.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Innomatics Research Labs -->
+        <div class="item">
+          <div class="when">
+            Sep 2024 — Dec 2024
+            <div style="font-size: 12px; color: var(--mute); font-weight: normal; margin-top: 4px;">Hyderabad</div>
+          </div>
+          <div>
+            <h3>GenAI Intern</h3>
+            <div class="org">Innomatics Research Labs</div>
+            <ul>
+              <li>
+                Conducted end-to-end data science and generative AI workflows: raw data preprocessing, predictive modeling, fine-tuning, and model evaluation.
+              </li>
+              <li>
+                Built real-world applications leveraging modern Generative AI paradigms, strengthening data pipeline hygiene and model personalization for practical business challenges.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+          <!-- Featured Project: EduBot Insight -->
+          <article class="card feat">
+            <span class="when">Featured Flagship Project &bull; Jul 2025 — Apr 2026</span>
+            <h3>EduBot Insight – Autonomous Feedback Mining with Humanoid Agents</h3>
+            <p>
+              Converted MLRIT's physical campus robot into an autonomous, privacy-preserving voice companion. Engineered on-device speech recognition (Vosk + LiveKit) and intelligent response synthesis powered by <strong>Qwen 2.5-1.5B-Instruct</strong> with RAG using <strong>BGE-small-en</strong> embeddings and <strong>FAISS</strong>. Features bilingual TTS (Indic Parler for English/Telugu), facial presence tracking (YOLOv8-face + ByteTrack without identity storage), anonymous student mode, and automatic safety keyword escalation over secure SMTP. Entirely self-contained on campus hardware without third-party data leakage.
+            </p>
+            <div class="tags">
+              <span>Qwen 2.5</span>
+              <span>FAISS & RAG</span>
+              <span>Vosk & LiveKit</span>
+              <span>Indic Parler (TTS)</span>
+              <span>YOLOv8-face</span>
+              <span>On-Device AI</span>
+            </div>
+          </article>
+
+          <!-- News Aggregator -->
+          <article class="card">
+            <h3>AI News Aggregator & Trend Visualizer</h3>
+            <div class="when" style="margin-bottom: 8px;">Feb 2025 — Jun 2025</div>
+            <p>
+              Built a real-time extraction pipeline using Playwright and BeautifulSoup. Integrated Ollama (Llama 3.2) alongside the Google Gemini API for intelligent summary synthesis and contextual topic classification, presented via an interactive Streamlit dashboard tracking top sources, coverage volume, and category trends.
+            </p>
+            <div class="tags">
+              <span>Playwright</span>
+              <span>BeautifulSoup</span>
+              <span>Ollama (Llama 3.2)</span>
+              <span>Google Gemini</span>
+              <span>Streamlit</span>
+            </div>
+          </article>
+
+          <!-- PDF Chatbot Analyzer -->
+          <article class="card">
+            <h3>PDF Chatbot Analyzer</h3>
+            <div class="when" style="margin-bottom: 8px;">Vector Retrieval Engine</div>
+            <p>
+              Constructed a local vector-retrieval engine utilizing Ollama models (Llama 3.2, Mistral, Gemma) coupled with FAISS embeddings for semantic search and document ranking. Systematically benchmarked prompt templates and retrieval accuracy with a modular layout built for enterprise file integration.
+            </p>
+            <div class="tags">
+              <span>LangChain</span>
+              <span>FAISS</span>
+              <span>Mistral & Gemma</span>
+              <span>Vector Search</span>
+              <span>Python</span>
+            </div>
+          </article>
+
+          <!-- Podcast Assistant -->
+          <article class="card">
+            <h3>Podcast Assistant – AI Web App</h3>
+            <div class="when" style="margin-bottom: 8px;">Full-Stack AI Application</div>
+            <p>
+              Designed a full-stack Flask application integrating Google Gemini and Supabase for automated podcast idea generation, multi-speaker script creation, and personalized content delivery, employing vector embeddings for context-retaining user memory.
+            </p>
+            <div class="tags">
+              <span>Flask</span>
+              <span>Google Gemini API</span>
+              <span>Supabase</span>
+              <span>Vector Memory</span>
+            </div>
+          </article>
+
+          <!-- Doctor Babu / App Fiesta Project -->
+          <article class="card">
+            <h3>Doctor Babu – Healthcare & Blood Bank Hub</h3>
+            <div class="when" style="margin-bottom: 8px;">App Fiesta 3rd Prize Winner</div>
+            <p>
+              Developed a unified healthcare platform facilitating 24/7 medicine e-commerce, emergency real-time blood donor discovery, and automated hospital inventory alerts.
+            </p>
+            <div class="tags">
+              <span>Web / App</span>
+              <span>Healthcare API</span>
+              <span>Real-time DB</span>
+              <span>Emergency Services</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Technical Skills Section (Formatted directly to match screenshot) -->
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-wrap">
+          <strong>Programming & Core</strong>
+          <div class="tags">
+            <span>Python</span>
+            <span>Java</span>
+            <span>C</span>
+            <span>JavaScript</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>SQL</span>
+            <span>MySQL</span>
+            <span>OOP</span>
+            <span>DSA</span>
+            <span>DBMS</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>AI / ML & LLMs</strong>
+          <div class="tags">
+            <span>LangChain</span>
+            <span>LangGraph</span>
+            <span>Agentic AI</span>
+            <span>RAG</span>
+            <span>Ollama</span>
+            <span>Groq</span>
+            <span>Google Gemini</span>
+            <span>Qwen</span>
+            <span>Mistral</span>
+            <span>Gemma</span>
+            <span>BERT</span>
+            <span>TextBlob</span>
+            <span>NLP</span>
+            <span>Prompt Engineering</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>Frameworks & Tools</strong>
+          <div class="tags">
+            <span>React.js</span>
+            <span>Node.js</span>
+            <span>Flask</span>
+            <span>FastAPI</span>
+            <span>Streamlit</span>
+            <span>Selenium</span>
+            <span>Playwright</span>
+            <span>PyWinAuto</span>
+            <span>Docker</span>
+            <span>Git & GitHub</span>
+            <span>LiveKit</span>
+            <span>Vosk</span>
+            <span>Postman</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>Data & Automation</strong>
+          <div class="tags">
+            <span>Web Scraping</span>
+            <span>pdfplumber</span>
+            <span>SQLite</span>
+            <span>DNS / MX / SMTP Verification</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>FAISS</span>
+            <span>Matplotlib</span>
+            <span>NLTK</span>
+            <span>SSE</span>
+          </div>
+
+          <div class="skills-divider"></div>
+
+          <strong>Platforms & AI Suite</strong>
+          <div class="tags">
+            <span>VAPI Voice AI</span>
+            <span>Cursor</span>
+            <span>BMAD</span>
+            <span>Claude AI</span>
+            <span>Sirenia & Manatee</span>
+            <span>Power Automate</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Awards Section -->
+      <section id="education">
+        <h2>Education & Achievements</h2>
+
+        <!-- Education -->
+        <div class="item" style="padding-top: 0; border-top: none;">
+          <div class="when">2022 — 2026</div>
+          <div>
+            <h3>Bachelor of Technology in CSE (AI & ML)</h3>
+            <div class="org">MLR Institute of Technology, Hyderabad</div>
+            <p style="margin: 0; font-size: 14.5px; color: #cbd5e1;"><strong>CGPA: 8.68</strong> &bull; Specialized in Artificial Intelligence, Machine Learning, and Computer Vision.</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">2020 — 2022</div>
+          <div>
+            <h3>Intermediate (M.P.C)</h3>
+            <div class="org">Sri Akshaya Junior College, Sangareddy</div>
+            <p style="margin: 0; font-size: 14.5px; color: #cbd5e1;"><strong>Score: 95.1%</strong> &bull; Mathematics, Physics, and Chemistry foundation.</p>
+          </div>
+        </div>
+
+        <!-- Awards & Hackathons -->
+        <h3 style="font-size: 20px; margin: 30px 0 16px; color: #ffffff;">Honors & Hackathon Awards</h3>
+
+        <div class="award">
+          <div class="badge">3rd</div>
+          <div>
+            <div class="award-sub">India-Wide Hackathon</div>
+            <h3>SpinSci AI Hackathon &bull; 3rd Prize</h3>
+            <p>Developed an AI-powered behavioral analysis chatbot capable of predicting user behavior patterns from multi-turn dialogues and detected activities.</p>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="badge">3rd</div>
+          <div>
+            <div class="award-sub">Healthcare Innovation</div>
+            <h3>App Fiesta &bull; 3rd Prize</h3>
+            <p>Built "Doctor Babu" — a full-scale medicine e-commerce solution with integrated blood donor bank offering 24/7 medical supply coordination.</p>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="badge">Top 15</div>
+          <div>
+            <div class="award-sub">T-Hub State Innovation</div>
+            <h3>Technowthon Hackathon &bull; Top 15 Finalist</h3>
+            <p>Designed and presented an open chat platform bridging communication between verified orphanages and direct donors, pitched live at T-Hub Hyderabad.</p>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="badge scholar">Merit</div>
+          <div>
+            <div class="award-sub">Scholarship Recognition</div>
+            <h3>Lila Poonawalla Foundation Scholar</h3>
+            <p>Awarded INR 45,000 annually since 2022 in competitive recognition of consistent academic excellence and technical potential.</p>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="certs-box" id="certs">
+          <h3>Certifications & Credentials</h3>
+          <ul class="certs">
+            <li><strong>NPTEL:</strong> The Joy of Computing in Python (Elite Score: 71%)</li>
+            <li><strong>IUCEE:</strong> 8-week Intensive 'Artificial Intelligence for All' Program</li>
+            <li><strong>Cisco Networking Academy:</strong> Python Essentials 1 & 2</li>
+            <li><strong>HackerRank:</strong> Certified Software Engineering Intern</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2>Let's Connect</h2>
+        <p class="intro">
+          I am actively exploring AI engineering roles, LLM/Agentic product teams, and high-impact software development opportunities. Feel free to reach out directly.
+        </p>
+        <div class="cta-row">
+          <a class="cta primary-gold" href="mailto:rishitharumandla04@gmail.com">
+            <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email Me
+          </a>
+          <a class="cta" href="https://linkedin.com/in/rishitharumandla04" target="_blank" rel="noreferrer">
+            <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+            LinkedIn Profile
+          </a>
+          <a class="cta alt" href="tel:+918688270630">
+            <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            +91 8688270630
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scrollspy for navigation highlight
+    window.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main section');
+      const navLinks = document.querySelectorAll('#sidebar-nav a');
+
+      function updateActiveNav() {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 120;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        if (currentSectionId) {
+          navLinks.forEach(link => {
+            link.classList.remove('on');
+            if (link.getAttribute('href') === '#' + currentSectionId) {
+              link.classList.add('on');
+            }
+          });
+        }
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+    });
+  </script>
+</body>
+</html>
