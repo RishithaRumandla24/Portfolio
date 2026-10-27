@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rishitha Rumandla – AI Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --side: #2b2f36;
+      --ink: #1f2328;
+      --mute: #5b626b;
+      --card: #ffffff;
+      --line: #d9dce1;
+      --blue: #3f4752;
+      --gold: #b7a778;
+      --onside: #eceef1;
+      --onblue: #ffffff;
+      --highlight: #eef2ff;
+      --shadow: 0 18px 40px rgba(14, 20, 27, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121417;
+        --side: #0b0c0e;
+        --ink: #eceef1;
+        --mute: #a1a8b3;
+        --card: #1c1f24;
+        --line: #2f343b;
+        --blue: #c3c9d2;
+        --gold: #c7b683;
+        --onblue: #121417;
+        --highlight: rgba(255,255,255,0.04);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #121417;
+      --side: #0b0c0e;
+      --ink: #eceef1;
+      --mute: #a1a8b3;
+      --card: #1c1f24;
+      --line: #2f343b;
+      --blue: #c3c9d2;
+      --gold: #c7b683;
+      --onblue: #121417;
+      --highlight: rgba(255,255,255,0.04);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 16px/1.65 'Libre Franklin', sans-serif;
+    }
+    h1, h2, h3 { font-family: 'Libre Baskerville', Georgia, serif; margin: 0; line-height: 1.2; }
+    a { color: var(--blue); }
+    .layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    aside {
+      background: var(--side);
+      color: var(--onside);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 38px 28px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold), #e8d7a0);
+      color: var(--side);
+      font: 700 42px 'Libre Baskerville', serif;
+      border: 4px solid rgba(255,255,255,0.2);
+      box-shadow: var(--shadow);
+    }
+    aside h1 {
+      font-size: 28px;
+      margin: 20px 0 8px;
+      color: #fff;
+    }
+    .role {
+      font-size: 15px;
+      color: #c7ccd4;
+      margin: 0 0 26px;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    nav a {
+      color: var(--onside);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-left: 3px solid transparent;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.2s ease;
+    }
+    nav a:hover,
+    nav a.on {
+      border-left-color: var(--gold);
+      background: rgba(255,255,255,0.06);
+    }
+    .contact {
+      margin-top: auto;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14.5px;
+    }
+    .contact a {
+      color: #dfe4ea;
+      text-decoration: none;
+    }
+    main {
+      max-width: 980px;
+      width: 100%;
+      padding: 56px 6vw 80px;
+    }
+    section { margin-bottom: 64px; }
+    h2 {
+      display: inline-block;
+      font-size: 29px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--gold);
+      margin-bottom: 26px;
+    }
+    .intro {
+      max-width: 38em;
+      font-size: 21px;
+      color: var(--ink);
+    }
+    .chat {
+      margin-top: 26px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      max-width: 560px;
+      box-shadow: var(--shadow);
+    }
+    .chat-head {
+      font-size: 13px;
+      color: var(--mute);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .msgs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 230px;
+      overflow-y: auto;
+    }
+    .msg {
+      padding: 10px 14px;
+      border-radius: 12px;
+      max-width: 90%;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .msg.bot { background: var(--highlight); }
+    .msg.me {
+      background: var(--blue);
+      color: var(--onblue);
+      align-self: flex-end;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .chips span {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--ink);
+      background: transparent;
+    }
+    .item {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 22px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .when {
+      color: var(--mute);
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+    .item h3 { font-size: 21px; margin-bottom: 3px; }
+    .org {
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .item ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .item li { margin-bottom: 6px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--blue);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(17, 20, 27, 0.03);
+    }
+    .card.feat {
+      grid-column: 1 / -1;
+      background: var(--side);
+      color: var(--onside);
+      border-top-color: var(--gold);
+    }
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+    .card p {
+      margin: 0 0 12px;
+      font-size: 15.5px;
+    }
+    .feat .when {
+      color: #d3d8de;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tags span {
+      display: inline-block;
+      background: var(--bg);
+      color: var(--ink);
+      border-radius: 4px;
+      font-size: 12.5px;
+      padding: 3px 10px;
+      font-weight: 600;
+    }
+    .feat .tags span {
+      background: rgba(255,255,255,0.08);
+      color: var(--onside);
+    }
+    .award {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+    .badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--side);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 12px 'Libre Franklin', sans-serif;
+      text-align: center;
+      line-height: 1.1;
+      padding: 8px;
+    }
+    .award h3 { font-size: 18px; }
+    .award p { margin: 5px 0 0; }
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 20px 22px;
+      align-items: start;
+    }
+    .skills-wrap strong {
+      display: block;
+      padding-top: 4px;
+      font-size: 15px;
+    }
+    .certs {
+      columns: 2;
+      padding-left: 18px;
+      margin: 0;
+    }
+    .certs li {
+      margin-bottom: 8px;
+      break-inside: avoid;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .cta {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--onblue);
+      text-decoration: none;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-weight: 600;
+    }
+    .cta.alt {
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--ink);
+    }
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      aside {
+        position: static;
+        height: auto;
+        padding: 26px 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+      .avatar {
+        width: 92px;
+        height: 92px;
+        font-size: 30px;
+      }
+      aside h1 { margin: 0; }
+      .role { margin: 4px 0 0; }
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .contact { margin: 0; padding: 0; }
+      main { padding: 36px 22px 60px; }
+      .item, .skills-wrap { grid-template-columns: 1fr; gap: 6px; }
+      .grid { grid-template-columns: 1fr; }
+      .certs { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="avatar">RR</div>
+      <div>
+        <h1>Rishitha Rumandla</h1>
+        <p class="role">AI Developer</p>
+      </div>
+
+      <nav>
+        <a href="#about" class="on">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="contact" id="contact">
+        <a href="mailto:rishitha@example.com">rishitha@example.com</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">linkedin.com/in/rishitha</a>
+        <a href="https://github.com" target="_blank" rel="noreferrer">github.com/rishitha</a>
+      </div>
+    </aside>
+
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <p class="intro">
+          I’m an AI developer focused on building practical, user-centered solutions with machine learning,
+          automation, and modern web technologies. I enjoy turning complex ideas into clear, reliable products
+          that help people work smarter and faster.
+        </p>
+
+        <div class="chat">
+          <div class="chat-head">Quick intro</div>
+          <div class="msgs">
+            <div class="msg bot">I build AI-powered experiences that are useful, scalable, and easy to trust.</div>
+            <div class="msg me">I enjoy solving real problems with code, data, and thoughtful design.</div>
+          </div>
+          <div class="chips">
+            <span>Python</span>
+            <span>AI/ML</span>
+            <span>Prompt Engineering</span>
+            <span>Automation</span>
+            <span>Web Apps</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="item">
+          <div class="when">2023 — Present</div>
+          <div>
+            <h3>AI Developer</h3>
+            <div class="org">Independent / Product-focused projects</div>
+            <ul>
+              <li>Designed and developed AI-driven workflows for content, productivity, and decision-support tools.</li>
+              <li>Built prototypes and production-ready interfaces combining backend logic, data pipelines, and user experience.</li>
+              <li>Experimented with prompt design, model evaluation, and automation strategies to improve reliability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">2021 — 2023</div>
+          <div>
+            <h3>Software Developer</h3>
+            <div class="org">Digital Solutions</div>
+            <ul>
+              <li>Built web applications, internal tools, and process automations to optimize day-to-day operations.</li>
+              <li>Collaborated across teams to translate requirements into clean, maintainable code and workflows.</li>
+              <li>Improved user engagement through interactive interfaces and better data-driven experiences.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+          <article class="card feat">
+            <div class="when">Featured project</div>
+            <h3>AI Assistant & Workflow Orchestrator</h3>
+            <p>
+              A smart assistant platform that combines prompt-driven task execution, structured data processing,
+              and streamlined automation for repetitive business workflows.
+            </p>
+            <div class="tags">
+              <span>Python</span>
+              <span>LLM</span>
+              <span>Automation</span>
+              <span>APIs</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Generative Content Studio</h3>
+            <p>Built a content workflow for ideation, drafting, templating, and publishing support across multiple formats.</p>
+            <div class="tags">
+              <span>Prompt Design</span>
+              <span>UX</span>
+              <span>Optimization</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Data Insights Dashboard</h3>
+            <p>Created a reporting dashboard to visualize trends, monitor key metrics, and uncover actionable patterns.</p>
+            <div class="tags">
+              <span>Analytics</span>
+              <span>Data Viz</span>
+              <span>Dashboards</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-wrap">
+          <strong>Core</strong>
+          <div class="tags">
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>SQL</span>
+          </div>
+
+          <strong>AI & Data</strong>
+          <div class="tags">
+            <span>Machine Learning</span>
+            <span>Deep Learning</span>
+            <span>LLMs</span>
+            <span>Prompt Engineering</span>
+            <span>Data Analysis</span>
+          </div>
+
+          <strong>Tools</strong>
+          <div class="tags">
+            <span>Git</span>
+            <span>VS Code</span>
+            <span>Figma</span>
+            <span>Power BI</span>
+            <span>APIs</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="certs">
+        <h2>Certifications & Highlights</h2>
+        <div class="award">
+          <div class="badge">AI</div>
+          <div>
+            <h3>AI & Automation Focus</h3>
+            <p>Interested in practical AI systems that improve efficiency, decision-making, and user outcomes.</p>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="badge">ML</div>
+          <div>
+            <h3>Machine Learning Foundation</h3>
+            <p>Comfortable working with model workflows, experimentation, and data-driven problem solving.</p>
+          </div>
+        </div>
+
+        <ul class="certs">
+          <li>Python for Data Science</li>
+          <li>Prompt Engineering Fundamentals</li>
+          <li>Web Development Essentials</li>
+          <li>AI Product Thinking</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Let's Connect</h2>
+        <p class="intro">I’m open to collaborations, freelance work, and product-focused AI opportunities.</p>
+        <div class="cta-row">
+          <a class="cta" href="mailto:rishitha@example.com">Email Me</a>
+          <a class="cta alt" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
